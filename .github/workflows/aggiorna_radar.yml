@@ -1,0 +1,35 @@
+name: Aggiorna Savi Market Radar ogni mattina
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-radar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica file repository
+        uses: actions/checkout@v4
+
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Esegui radar_savi.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python radar_savi.py
+
+      - name: Salva dati_radar.json aggiornato
+        run: |
+          git config user.name "Savi Radar Bot"
+          git config user.email "bot@saviguesthouseroma.it"
+          git add dati_radar.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Aggiornamento
