@@ -1,0 +1,2276 @@
+{
+  "updated_at": "2026-11-19 14:13 UTC",
+  "regole": {
+    "base_singola": 83,
+    "base_doppia": 90,
+    "blue_room_extra": 5,
+    "weekend_nov_dic_extra": 5,
+    "raggio_km": 1.5
+  },
+  "storico_mercato": [
+    {
+      "data": "2026-11-19",
+      "media_singola": 84,
+      "media_doppia": 93
+    }
+  ],
+  "competitors": [
+    {
+      "nome": "Mr. Brown San Paolo",
+      "tipo": "Affittacamere",
+      "camera": "Matrimoniale Standard",
+      "distanza_km": 0.35,
+      "singola_ref": 84,
+      "doppia_ref": 92
+    },
+    {
+      "nome": "Onesti House",
+      "tipo": "Affittacamere",
+      "camera": "Doppia con bagno privato",
+      "distanza_km": 0.45,
+      "singola_ref": 82,
+      "doppia_ref": 90
+    },
+    {
+      "nome": "Guest House San Lorenz",
+      "tipo": "Guest House",
+      "camera": "Matrimoniale",
+      "distanza_km": 0.6,
+      "singola_ref": 85,
+      "doppia_ref": 94
+    },
+    {
+      "nome": "Hello Roma B&B",
+      "tipo": "B&B / 3★",
+      "camera": "Camera Doppia/Uso Singola",
+      "distanza_km": 0.85,
+      "singola_ref": 73,
+      "doppia_ref": 99
+    },
+    {
+      "nome": "Roma Sister",
+      "tipo": "Affittacamere",
+      "camera": "Camera Matrimoniale",
+      "distanza_km": 0.9,
+      "singola_ref": 79,
+      "doppia_ref": 88
+    },
+    {
+      "nome": "Villa San Paolo Hotel",
+      "tipo": "Hotel 3★",
+      "camera": "Camera Doppia Classic",
+      "distanza_km": 0.95,
+      "singola_ref": 88,
+      "doppia_ref": 98
+    },
+    {
+      "nome": "BV Oly Hotel",
+      "tipo": "Hotel 4★",
+      "camera": "Camera Standard",
+      "distanza_km": 1.15,
+      "singola_ref": 86,
+      "doppia_ref": 91
+    },
+    {
+      "nome": "J24 Bed & Breakfast",
+      "tipo": "B&B / 4★",
+      "camera": "Camera Matrimoniale",
+      "distanza_km": 1.25,
+      "singola_ref": 95,
+      "doppia_ref": 91
+    },
+    {
+      "nome": "Hotel Pulitzer Roma",
+      "tipo": "Hotel 4★",
+      "camera": "Camera Classic",
+      "distanza_km": 1.35,
+      "singola_ref": 89,
+      "doppia_ref": 96
+    },
+    {
+      "nome": "Hotel Caravel",
+      "tipo": "Hotel 4★",
+      "camera": "Camera Doppia",
+      "distanza_km": 1.45,
+      "singola_ref": 81,
+      "doppia_ref": 95
+    }
+  ],
+  "eventi": [
+    {
+      "titolo": "Convegno Medico-Scientifico Nazionale",
+      "sede": "Garbatella / Hotel Mantegna",
+      "area": "mantegna",
+      "inizio": "2026-11-20",
+      "fine": "2026-11-21",
+      "impatto": "Alto",
+      "delta_consigliato": 12,
+      "note": "Alta richiesta camere singole e doppie uso singolo vicino C. Colombo / Garbatella."
+    },
+    {
+      "titolo": "Congressi & Forum Aziendali EUR",
+      "sede": "Quartiere EUR (La Nuvola / Palazzo Congressi)",
+      "area": "eur",
+      "inizio": "2026-11-25",
+      "fine": "2026-11-27",
+      "impatto": "Alto",
+      "delta_consigliato": 15,
+      "note": "Clientela business Metro B Laurentina-EUR; forte pressione sulle tariffe."
+    },
+    {
+      "titolo": "Sessioni di Laurea & Convegni Dipartimentali",
+      "sede": "Laurentina / Università Roma Tre",
+      "area": "laurentina",
+      "inizio": "2026-12-01",
+      "fine": "2026-12-03",
+      "impatto": "Medio-Alto",
+      "delta_consigliato": 10,
+      "note": "Famiglie e docenti in arrivo su San Paolo / Marconi / Laurentina."
+    },
+    {
+      "titolo": "Ponte dell'Immacolata a Roma",
+      "sede": "Roma / Polo San Paolo & EUR",
+      "area": "eur",
+      "inizio": "2026-12-05",
+      "fine": "2026-12-08",
+      "impatto": "Molto Alto",
+      "delta_consigliato": 22,
+      "note": "Picco turistico weekend lungo; mantenere tariffe sostenute."
+    },
+    {
+      "titolo": "Simposio Formazione & Sanità",
+      "sede": "Garbatella / Hotel Mantegna",
+      "area": "mantegna",
+      "inizio": "2026-12-11",
+      "fine": "2026-12-12",
+      "impatto": "Alto",
+      "delta_consigliato": 14,
+      "note": "Convegno al Centro Congressi Mantegna + weekend di dicembre."
+    },
+    {
+      "titolo": "Congresso Nazionale di Fine Anno",
+      "sede": "Quartiere EUR (La Nuvola)",
+      "area": "eur",
+      "inizio": "2026-12-16",
+      "fine": "2026-12-18",
+      "impatto": "Alto",
+      "delta_consigliato": 15,
+      "note": "Forte domanda business prima della pausa natalizia."
+    },
+    {
+      "titolo": "Festività Natalizie & Capodanno a Roma",
+      "sede": "Roma / San Paolo - Ostiense",
+      "area": "eur",
+      "inizio": "2026-12-26",
+      "fine": "2026-12-31",
+      "impatto": "Molto Alto",
+      "delta_consigliato": 28,
+      "note": "Alta stagione invernale e Capodanno."
+    }
+  ],
+  "calendario": [
+    {
+      "date": "2026-11-01",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-02",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-03",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-04",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-05",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-06",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-11-07",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-11-08",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-09",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-10",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-11",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-12",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-13",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-11-14",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-11-15",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-16",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-17",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-18",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-19",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-20",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Convegno Medico-Scientifico Nazionale",
+        "sede": "Garbatella / Hotel Mantegna",
+        "area": "mantegna",
+        "inizio": "2026-11-20",
+        "fine": "2026-11-21",
+        "impatto": "Alto",
+        "delta_consigliato": 12,
+        "note": "Alta richiesta camere singole e doppie uso singolo vicino C. Colombo / Garbatella."
+      },
+      "mercato": {
+        "singola_media": 96,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 100,
+          "green": 100,
+          "blue": 105
+        },
+        "doppia": {
+          "brown": 107,
+          "green": 107,
+          "blue": 112
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Convegno Medico-Scientifico Nazionale (+€12)"
+    },
+    {
+      "date": "2026-11-21",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Convegno Medico-Scientifico Nazionale",
+        "sede": "Garbatella / Hotel Mantegna",
+        "area": "mantegna",
+        "inizio": "2026-11-20",
+        "fine": "2026-11-21",
+        "impatto": "Alto",
+        "delta_consigliato": 12,
+        "note": "Alta richiesta camere singole e doppie uso singolo vicino C. Colombo / Garbatella."
+      },
+      "mercato": {
+        "singola_media": 96,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 100,
+          "green": 100,
+          "blue": 105
+        },
+        "doppia": {
+          "brown": 107,
+          "green": 107,
+          "blue": 112
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Convegno Medico-Scientifico Nazionale (+€12)"
+    },
+    {
+      "date": "2026-11-22",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-23",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-24",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-25",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Congressi & Forum Aziendali EUR",
+        "sede": "Quartiere EUR (La Nuvola / Palazzo Congressi)",
+        "area": "eur",
+        "inizio": "2026-11-25",
+        "fine": "2026-11-27",
+        "impatto": "Alto",
+        "delta_consigliato": 15,
+        "note": "Clientela business Metro B Laurentina-EUR; forte pressione sulle tariffe."
+      },
+      "mercato": {
+        "singola_media": 91,
+        "doppia_media": 100
+      },
+      "consigli": {
+        "singola": {
+          "brown": 98,
+          "green": 98,
+          "blue": 103
+        },
+        "doppia": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        }
+      },
+      "motivazione": "Congressi & Forum Aziendali EUR (+€15)"
+    },
+    {
+      "date": "2026-11-26",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Congressi & Forum Aziendali EUR",
+        "sede": "Quartiere EUR (La Nuvola / Palazzo Congressi)",
+        "area": "eur",
+        "inizio": "2026-11-25",
+        "fine": "2026-11-27",
+        "impatto": "Alto",
+        "delta_consigliato": 15,
+        "note": "Clientela business Metro B Laurentina-EUR; forte pressione sulle tariffe."
+      },
+      "mercato": {
+        "singola_media": 91,
+        "doppia_media": 100
+      },
+      "consigli": {
+        "singola": {
+          "brown": 98,
+          "green": 98,
+          "blue": 103
+        },
+        "doppia": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        }
+      },
+      "motivazione": "Congressi & Forum Aziendali EUR (+€15)"
+    },
+    {
+      "date": "2026-11-27",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Congressi & Forum Aziendali EUR",
+        "sede": "Quartiere EUR (La Nuvola / Palazzo Congressi)",
+        "area": "eur",
+        "inizio": "2026-11-25",
+        "fine": "2026-11-27",
+        "impatto": "Alto",
+        "delta_consigliato": 15,
+        "note": "Clientela business Metro B Laurentina-EUR; forte pressione sulle tariffe."
+      },
+      "mercato": {
+        "singola_media": 97,
+        "doppia_media": 108
+      },
+      "consigli": {
+        "singola": {
+          "brown": 103,
+          "green": 103,
+          "blue": 108
+        },
+        "doppia": {
+          "brown": 110,
+          "green": 110,
+          "blue": 115
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Congressi & Forum Aziendali EUR (+€15)"
+    },
+    {
+      "date": "2026-11-28",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-11-29",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-11-30",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-01",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Sessioni di Laurea & Convegni Dipartimentali",
+        "sede": "Laurentina / Università Roma Tre",
+        "area": "laurentina",
+        "inizio": "2026-12-01",
+        "fine": "2026-12-03",
+        "impatto": "Medio-Alto",
+        "delta_consigliato": 10,
+        "note": "Famiglie e docenti in arrivo su San Paolo / Marconi / Laurentina."
+      },
+      "mercato": {
+        "singola_media": 89,
+        "doppia_media": 98
+      },
+      "consigli": {
+        "singola": {
+          "brown": 93,
+          "green": 93,
+          "blue": 98
+        },
+        "doppia": {
+          "brown": 100,
+          "green": 100,
+          "blue": 105
+        }
+      },
+      "motivazione": "Sessioni di Laurea & Convegni Dipartimentali (+€10)"
+    },
+    {
+      "date": "2026-12-02",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Sessioni di Laurea & Convegni Dipartimentali",
+        "sede": "Laurentina / Università Roma Tre",
+        "area": "laurentina",
+        "inizio": "2026-12-01",
+        "fine": "2026-12-03",
+        "impatto": "Medio-Alto",
+        "delta_consigliato": 10,
+        "note": "Famiglie e docenti in arrivo su San Paolo / Marconi / Laurentina."
+      },
+      "mercato": {
+        "singola_media": 89,
+        "doppia_media": 98
+      },
+      "consigli": {
+        "singola": {
+          "brown": 93,
+          "green": 93,
+          "blue": 98
+        },
+        "doppia": {
+          "brown": 100,
+          "green": 100,
+          "blue": 105
+        }
+      },
+      "motivazione": "Sessioni di Laurea & Convegni Dipartimentali (+€10)"
+    },
+    {
+      "date": "2026-12-03",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Sessioni di Laurea & Convegni Dipartimentali",
+        "sede": "Laurentina / Università Roma Tre",
+        "area": "laurentina",
+        "inizio": "2026-12-01",
+        "fine": "2026-12-03",
+        "impatto": "Medio-Alto",
+        "delta_consigliato": 10,
+        "note": "Famiglie e docenti in arrivo su San Paolo / Marconi / Laurentina."
+      },
+      "mercato": {
+        "singola_media": 89,
+        "doppia_media": 98
+      },
+      "consigli": {
+        "singola": {
+          "brown": 93,
+          "green": 93,
+          "blue": 98
+        },
+        "doppia": {
+          "brown": 100,
+          "green": 100,
+          "blue": 105
+        }
+      },
+      "motivazione": "Sessioni di Laurea & Convegni Dipartimentali (+€10)"
+    },
+    {
+      "date": "2026-12-04",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-12-05",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Ponte dell'Immacolata a Roma",
+        "sede": "Roma / Polo San Paolo & EUR",
+        "area": "eur",
+        "inizio": "2026-12-05",
+        "fine": "2026-12-08",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 22,
+        "note": "Picco turistico weekend lungo; mantenere tariffe sostenute."
+      },
+      "mercato": {
+        "singola_media": 101,
+        "doppia_media": 112
+      },
+      "consigli": {
+        "singola": {
+          "brown": 110,
+          "green": 110,
+          "blue": 115
+        },
+        "doppia": {
+          "brown": 117,
+          "green": 117,
+          "blue": 122
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Ponte dell'Immacolata a Roma (+€22)"
+    },
+    {
+      "date": "2026-12-06",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Ponte dell'Immacolata a Roma",
+        "sede": "Roma / Polo San Paolo & EUR",
+        "area": "eur",
+        "inizio": "2026-12-05",
+        "fine": "2026-12-08",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 22,
+        "note": "Picco turistico weekend lungo; mantenere tariffe sostenute."
+      },
+      "mercato": {
+        "singola_media": 95,
+        "doppia_media": 104
+      },
+      "consigli": {
+        "singola": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        },
+        "doppia": {
+          "brown": 112,
+          "green": 112,
+          "blue": 117
+        }
+      },
+      "motivazione": "Ponte dell'Immacolata a Roma (+€22)"
+    },
+    {
+      "date": "2026-12-07",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Ponte dell'Immacolata a Roma",
+        "sede": "Roma / Polo San Paolo & EUR",
+        "area": "eur",
+        "inizio": "2026-12-05",
+        "fine": "2026-12-08",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 22,
+        "note": "Picco turistico weekend lungo; mantenere tariffe sostenute."
+      },
+      "mercato": {
+        "singola_media": 95,
+        "doppia_media": 104
+      },
+      "consigli": {
+        "singola": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        },
+        "doppia": {
+          "brown": 112,
+          "green": 112,
+          "blue": 117
+        }
+      },
+      "motivazione": "Ponte dell'Immacolata a Roma (+€22)"
+    },
+    {
+      "date": "2026-12-08",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Ponte dell'Immacolata a Roma",
+        "sede": "Roma / Polo San Paolo & EUR",
+        "area": "eur",
+        "inizio": "2026-12-05",
+        "fine": "2026-12-08",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 22,
+        "note": "Picco turistico weekend lungo; mantenere tariffe sostenute."
+      },
+      "mercato": {
+        "singola_media": 95,
+        "doppia_media": 104
+      },
+      "consigli": {
+        "singola": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        },
+        "doppia": {
+          "brown": 112,
+          "green": 112,
+          "blue": 117
+        }
+      },
+      "motivazione": "Ponte dell'Immacolata a Roma (+€22)"
+    },
+    {
+      "date": "2026-12-09",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-10",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-11",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Simposio Formazione & Sanità",
+        "sede": "Garbatella / Hotel Mantegna",
+        "area": "mantegna",
+        "inizio": "2026-12-11",
+        "fine": "2026-12-12",
+        "impatto": "Alto",
+        "delta_consigliato": 14,
+        "note": "Convegno al Centro Congressi Mantegna + weekend di dicembre."
+      },
+      "mercato": {
+        "singola_media": 97,
+        "doppia_media": 108
+      },
+      "consigli": {
+        "singola": {
+          "brown": 102,
+          "green": 102,
+          "blue": 107
+        },
+        "doppia": {
+          "brown": 109,
+          "green": 109,
+          "blue": 114
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Simposio Formazione & Sanità (+€14)"
+    },
+    {
+      "date": "2026-12-12",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Simposio Formazione & Sanità",
+        "sede": "Garbatella / Hotel Mantegna",
+        "area": "mantegna",
+        "inizio": "2026-12-11",
+        "fine": "2026-12-12",
+        "impatto": "Alto",
+        "delta_consigliato": 14,
+        "note": "Convegno al Centro Congressi Mantegna + weekend di dicembre."
+      },
+      "mercato": {
+        "singola_media": 97,
+        "doppia_media": 108
+      },
+      "consigli": {
+        "singola": {
+          "brown": 102,
+          "green": 102,
+          "blue": 107
+        },
+        "doppia": {
+          "brown": 109,
+          "green": 109,
+          "blue": 114
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Simposio Formazione & Sanità (+€14)"
+    },
+    {
+      "date": "2026-12-13",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-14",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-15",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-16",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Congresso Nazionale di Fine Anno",
+        "sede": "Quartiere EUR (La Nuvola)",
+        "area": "eur",
+        "inizio": "2026-12-16",
+        "fine": "2026-12-18",
+        "impatto": "Alto",
+        "delta_consigliato": 15,
+        "note": "Forte domanda business prima della pausa natalizia."
+      },
+      "mercato": {
+        "singola_media": 91,
+        "doppia_media": 100
+      },
+      "consigli": {
+        "singola": {
+          "brown": 98,
+          "green": 98,
+          "blue": 103
+        },
+        "doppia": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        }
+      },
+      "motivazione": "Congresso Nazionale di Fine Anno (+€15)"
+    },
+    {
+      "date": "2026-12-17",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Congresso Nazionale di Fine Anno",
+        "sede": "Quartiere EUR (La Nuvola)",
+        "area": "eur",
+        "inizio": "2026-12-16",
+        "fine": "2026-12-18",
+        "impatto": "Alto",
+        "delta_consigliato": 15,
+        "note": "Forte domanda business prima della pausa natalizia."
+      },
+      "mercato": {
+        "singola_media": 91,
+        "doppia_media": 100
+      },
+      "consigli": {
+        "singola": {
+          "brown": 98,
+          "green": 98,
+          "blue": 103
+        },
+        "doppia": {
+          "brown": 105,
+          "green": 105,
+          "blue": 110
+        }
+      },
+      "motivazione": "Congresso Nazionale di Fine Anno (+€15)"
+    },
+    {
+      "date": "2026-12-18",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Congresso Nazionale di Fine Anno",
+        "sede": "Quartiere EUR (La Nuvola)",
+        "area": "eur",
+        "inizio": "2026-12-16",
+        "fine": "2026-12-18",
+        "impatto": "Alto",
+        "delta_consigliato": 15,
+        "note": "Forte domanda business prima della pausa natalizia."
+      },
+      "mercato": {
+        "singola_media": 97,
+        "doppia_media": 108
+      },
+      "consigli": {
+        "singola": {
+          "brown": 103,
+          "green": 103,
+          "blue": 108
+        },
+        "doppia": {
+          "brown": 110,
+          "green": 110,
+          "blue": 115
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Congresso Nazionale di Fine Anno (+€15)"
+    },
+    {
+      "date": "2026-12-19",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-12-20",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-21",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-22",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-23",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-24",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2026-12-25",
+      "weekday": 4,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": null,
+      "mercato": {
+        "singola_media": 90,
+        "doppia_media": 101
+      },
+      "consigli": {
+        "singola": {
+          "brown": 88,
+          "green": 88,
+          "blue": 93
+        },
+        "doppia": {
+          "brown": 95,
+          "green": 95,
+          "blue": 100
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5)"
+    },
+    {
+      "date": "2026-12-26",
+      "weekday": 5,
+      "is_we_nov_dic": true,
+      "we_bonus": 5,
+      "evento": {
+        "titolo": "Festività Natalizie & Capodanno a Roma",
+        "sede": "Roma / San Paolo - Ostiense",
+        "area": "eur",
+        "inizio": "2026-12-26",
+        "fine": "2026-12-31",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 28,
+        "note": "Alta stagione invernale e Capodanno."
+      },
+      "mercato": {
+        "singola_media": 104,
+        "doppia_media": 115
+      },
+      "consigli": {
+        "singola": {
+          "brown": 116,
+          "green": 116,
+          "blue": 121
+        },
+        "doppia": {
+          "brown": 123,
+          "green": 123,
+          "blue": 128
+        }
+      },
+      "motivazione": "Weekend Nov/Dic (+€5) · Festività Natalizie & Capodanno a Roma (+€28)"
+    },
+    {
+      "date": "2026-12-27",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Festività Natalizie & Capodanno a Roma",
+        "sede": "Roma / San Paolo - Ostiense",
+        "area": "eur",
+        "inizio": "2026-12-26",
+        "fine": "2026-12-31",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 28,
+        "note": "Alta stagione invernale e Capodanno."
+      },
+      "mercato": {
+        "singola_media": 98,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 111,
+          "green": 111,
+          "blue": 116
+        },
+        "doppia": {
+          "brown": 118,
+          "green": 118,
+          "blue": 123
+        }
+      },
+      "motivazione": "Festività Natalizie & Capodanno a Roma (+€28)"
+    },
+    {
+      "date": "2026-12-28",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Festività Natalizie & Capodanno a Roma",
+        "sede": "Roma / San Paolo - Ostiense",
+        "area": "eur",
+        "inizio": "2026-12-26",
+        "fine": "2026-12-31",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 28,
+        "note": "Alta stagione invernale e Capodanno."
+      },
+      "mercato": {
+        "singola_media": 98,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 111,
+          "green": 111,
+          "blue": 116
+        },
+        "doppia": {
+          "brown": 118,
+          "green": 118,
+          "blue": 123
+        }
+      },
+      "motivazione": "Festività Natalizie & Capodanno a Roma (+€28)"
+    },
+    {
+      "date": "2026-12-29",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Festività Natalizie & Capodanno a Roma",
+        "sede": "Roma / San Paolo - Ostiense",
+        "area": "eur",
+        "inizio": "2026-12-26",
+        "fine": "2026-12-31",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 28,
+        "note": "Alta stagione invernale e Capodanno."
+      },
+      "mercato": {
+        "singola_media": 98,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 111,
+          "green": 111,
+          "blue": 116
+        },
+        "doppia": {
+          "brown": 118,
+          "green": 118,
+          "blue": 123
+        }
+      },
+      "motivazione": "Festività Natalizie & Capodanno a Roma (+€28)"
+    },
+    {
+      "date": "2026-12-30",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Festività Natalizie & Capodanno a Roma",
+        "sede": "Roma / San Paolo - Ostiense",
+        "area": "eur",
+        "inizio": "2026-12-26",
+        "fine": "2026-12-31",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 28,
+        "note": "Alta stagione invernale e Capodanno."
+      },
+      "mercato": {
+        "singola_media": 98,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 111,
+          "green": 111,
+          "blue": 116
+        },
+        "doppia": {
+          "brown": 118,
+          "green": 118,
+          "blue": 123
+        }
+      },
+      "motivazione": "Festività Natalizie & Capodanno a Roma (+€28)"
+    },
+    {
+      "date": "2026-12-31",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": {
+        "titolo": "Festività Natalizie & Capodanno a Roma",
+        "sede": "Roma / San Paolo - Ostiense",
+        "area": "eur",
+        "inizio": "2026-12-26",
+        "fine": "2026-12-31",
+        "impatto": "Molto Alto",
+        "delta_consigliato": 28,
+        "note": "Alta stagione invernale e Capodanno."
+      },
+      "mercato": {
+        "singola_media": 98,
+        "doppia_media": 107
+      },
+      "consigli": {
+        "singola": {
+          "brown": 111,
+          "green": 111,
+          "blue": 116
+        },
+        "doppia": {
+          "brown": 118,
+          "green": 118,
+          "blue": 123
+        }
+      },
+      "motivazione": "Festività Natalizie & Capodanno a Roma (+€28)"
+    },
+    {
+      "date": "2027-01-01",
+      "weekday": 4,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-02",
+      "weekday": 5,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-03",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-04",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-05",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-06",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-07",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-08",
+      "weekday": 4,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-09",
+      "weekday": 5,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-10",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-11",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-12",
+      "weekday": 1,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-13",
+      "weekday": 2,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-14",
+      "weekday": 3,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-15",
+      "weekday": 4,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-16",
+      "weekday": 5,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-17",
+      "weekday": 6,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    },
+    {
+      "date": "2027-01-18",
+      "weekday": 0,
+      "is_we_nov_dic": false,
+      "we_bonus": 0,
+      "evento": null,
+      "mercato": {
+        "singola_media": 84,
+        "doppia_media": 93
+      },
+      "consigli": {
+        "singola": {
+          "brown": 83,
+          "green": 83,
+          "blue": 88
+        },
+        "doppia": {
+          "brown": 90,
+          "green": 90,
+          "blue": 95
+        }
+      },
+      "motivazione": "Tariffa base standard allineata al mercato entro 1,5 km"
+    }
+  ]
+}

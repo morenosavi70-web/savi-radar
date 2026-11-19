@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Savi Radar" />
+  <title>Savi Market Radar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top);
+      --sab: env(safe-area-inset-bottom);
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      background-color: #f4f5f7;
+      color: #111827;
+      padding-top: calc(var(--sat) + 64px);
+      padding-bottom: calc(var(--sab) + 84px);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ios-header {
+      padding-top: calc(var(--sat) + 10px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .ios-tabbar {
+      padding-bottom: calc(var(--sab) + 8px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    input, select {
+      font-size: 16px !important;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header Fisso -->
+  <header class="ios-header fixed top-0 left-0 right-0 z-30 bg-white/90 border-b border-slate-200 px-4 pb-2.5">
+    <div class="max-w-lg mx-auto flex items-center justify-between">
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-base font-bold text-slate-900 tracking-tight">Savi Market Radar</h1>
+          <span id="syncBadge" class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Auto Python</span>
+        </div>
+        <p id="lastUpdateText" class="text-[11px] text-slate-500">San Paolo / Ostiense · Raggio 1,5 km</p>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <button onclick="toggleRulesDrawer()" class="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold px-2.5 py-1.5 rounded-full active:scale-95 transition">
+          ⚙️ Tariffe
+        </button>
+        <button onclick="switchTab('eventi')" class="relative bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold px-3 py-1.5 rounded-full active:scale-95 transition">
+          Eventi
+          <span id="eventCountBadge" class="ml-1 bg-amber-600 text-white text-[10px] px-1.5 py-0.2 rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast feedback copia -->
+  <div id="copyToast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 hidden bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg">
+    Prezzi copiati per Kross Booking ✓
+  </div>
+
+  <main class="max-w-lg mx-auto px-3.5 space-y-3">
+
+    <!-- PANNELLO RAPIDO TARIFFE BASE & SOGLIE (espandibile) -->
+    <section id="rulesDrawer" class="hidden bg-white rounded-2xl p-3.5 shadow-md border border-blue-200 space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-700">Calibrazione Tariffe Base & Scarsità</h2>
+        <button onclick="resetRules()" class="text-[11px] font-semibold text-blue-600">Ripristina default</button>
+      </div>
+      <div class="grid grid-cols-2 gap-2.5">
+        <div>
+          <label class="block text-[11px] text-slate-500 mb-1">Base Singola (€)</label>
+          <input id="cfgBaseSingola" type="number" class="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-sm font-semibold" />
+        </div>
+        <div>
+          <label class="block text-[11px] text-slate-500 mb-1">Base Doppia (€)</label>
+          <input id="cfgBaseDoppia" type="number" class="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-sm font-semibold" />
+        </div>
+        <div>
+          <label class="block text-[11px] text-slate-500 mb-1">Extra Blue Room (€)</label>
+          <input id="cfgBlueExtra" type="number" class="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-sm font-semibold" />
+        </div>
+        <div>
+          <label class="block text-[11px] text-slate-500 mb-1">Extra WE Nov/Dic (€)</label>
+          <input id="cfgWeExtra" type="number" class="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-sm font-semibold" />
+        </div>
+        <div class="col-span-2">
+          <label class="block text-[11px] text-slate-500 mb-1">Surplus Ultima Camera Libera (1 su 3 rimasta) (€)</label>
+          <input id="cfgLastRoomExtra" type="number" class="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-sm font-semibold" />
+        </div>
+      </div>
+      <button onclick="saveRulesFromUI()" class="w-full bg-blue-600 text-white font-semibold text-xs py-2.5 rounded-xl active:scale-98 transition">Applica & Salva su iPhone</button>
+    </section>
+
+    <!-- TAB 1: CONSIGLI PREZZI -->
+    <section id="tab-prezzi" class="space-y-3">
+      <!-- Selettore Singola / Doppia e Riepilogo Regole -->
+      <div class="bg-white rounded-2xl p-3 shadow-sm border border-slate-200/80 space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Occupazione</span>
+          <div class="inline-flex rounded-xl bg-slate-100 p-1">
+            <button id="btnSingola" onclick="setOcc('singola')" class="px-3 py-1 rounded-lg text-xs font-semibold transition">Singola (€83)</button>
+            <button id="btnDoppia" onclick="setOcc('doppia')" class="px-3 py-1 rounded-lg text-xs font-semibold transition">Doppia (€90)</button>
+          </div>
+        </div>
+        <div id="activeRulesBadges" class="flex flex-wrap gap-1.5 text-[11px] text-slate-600"></div>
+      </div>
+
+      <!-- Filtri Rapidi Calendario -->
+      <div class="flex gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
+        <button onclick="setFilter('all')" id="flt-all" class="flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white">Tutte le date</button>
+        <button onclick="setFilter('nov')" id="flt-nov" class="flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 border border-slate-200">Novembre</button>
+        <button onclick="setFilter('dic')" id="flt-dic" class="flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 border border-slate-200">Dicembre</button>
+        <button onclick="setFilter('we')" id="flt-we" class="flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 border border-slate-200">Weekend +€</button>
+        <button onclick="setFilter('ev')" id="flt-ev" class="flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 border border-slate-200">Convegni & Picchi</button>
+        <button onclick="setFilter('avail')" id="flt-avail" class="flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 border border-slate-200">Solo Camere Libere</button>
+      </div>
+
+      <!-- Lista Card Giorni -->
+      <div id="calendarList" class="space-y-2.5"></div>
+    </section>
+
+    <!-- TAB 2: MERCATO 1,5 KM -->
+    <section id="tab-mercato" class="hidden space-y-3">
+      <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200/80">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-sm font-bold text-slate-900">Camere Competitor (Max 1,5 km)</h2>
+          <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">No Appartamenti</span>
+        </div>
+        <p class="text-xs text-slate-500 mb-3">Hotel e Affittacamere/B&B nel raggio di 1,5 km da Via Alessandro Severo 73.</p>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-200/70">
+            <div class="text-[11px] text-slate-500">Media Zona Singola</div>
+            <div id="avgSingolaBox" class="text-lg font-bold text-slate-900">€ 84</div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-200/70">
+            <div class="text-[11px] text-slate-500">Media Zona Doppia</div>
+            <div id="avgDoppiaBox" class="text-lg font-bold text-slate-900">€ 93</div>
+          </div>
+        </div>
+        <div id="storicoBox" class="mb-3"></div>
+        <div id="competitorList" class="divide-y divide-slate-100"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ALERT EVENTI & CONVEGNI -->
+    <section id="tab-eventi" class="hidden space-y-3">
+      <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200/80 space-y-2.5">
+        <h2 class="text-sm font-bold text-slate-900">Radar Convegni & Eventi Roma Sud</h2>
+        <p class="text-xs text-slate-500">Focus su Hotel Mantegna (Garbatella), Quartiere EUR e Laurentina / Roma Tre.</p>
+        <div class="flex gap-1.5 overflow-x-auto no-scrollbar">
+          <button onclick="setAreaFilter('all')" id="area-all" class="area-btn shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-900 text-white">Tutte le sedi</button>
+          <button onclick="setAreaFilter('mantegna')" id="area-mantegna" class="area-btn shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Hotel Mantegna</button>
+          <button onclick="setAreaFilter('eur')" id="area-eur" class="area-btn shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Quartiere EUR</button>
+          <button onclick="setAreaFilter('laurentina')" id="area-laurentina" class="area-btn shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Laurentina</button>
+        </div>
+        <div id="eventList" class="space-y-2.5 pt-1"></div>
+      </div>
+
+      <!-- Aggiungi Evento Manuale al volo -->
+      <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200/80 space-y-2.5">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-600">Segnala Convegno Privato (es. Hotel Mantegna)</h3>
+        <input id="newEvTitle" type="text" placeholder="Titolo convegno (es. Congressi Mantegna)" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+        <div class="grid grid-cols-2 gap-2">
+          <select id="newEvArea" class="rounded-xl border border-slate-300 px-2.5 py-2 text-sm bg-white">
+            <option value="mantegna">Hotel Mantegna / Garbatella</option>
+            <option value="eur">Quartiere EUR</option>
+            <option value="laurentina">Laurentina / Roma Tre</option>
+          </select>
+          <input id="newEvDelta" type="number" value="15" min="0" max="80" placeholder="+€ consiglio" class="rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <input id="newEvStart" type="date" value="2026-11-24" class="rounded-xl border border-slate-300 px-2.5 py-2 text-sm" />
+          <input id="newEvEnd" type="date" value="2026-11-24" class="rounded-xl border border-slate-300 px-2.5 py-2 text-sm" />
+        </div>
+        <button onclick="addCustomEvent()" class="w-full bg-slate-900 text-white font-semibold text-sm py-2.5 rounded-xl active:scale-98 transition">Salva Alert & Aggiorna Prezzi</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Tab Bar iOS -->
+  <nav class="ios-tabbar fixed bottom-0 left-0 right-0 z-30 bg-white/95 border-t border-slate-200 px-6 pt-2">
+    <div class="max-w-lg mx-auto grid grid-cols-3 gap-2 text-center">
+      <button onclick="switchTab('prezzi')" id="nav-prezzi" class="flex flex-col items-center text-blue-600 font-semibold">
+        <span class="text-lg leading-none">💶</span>
+        <span class="text-[11px] mt-1">Consigli Prezzi</span>
+      </button>
+      <button onclick="switchTab('mercato')" id="nav-mercato" class="flex flex-col items-center text-slate-500 font-medium">
+        <span class="text-lg leading-none">🏨</span>
+        <span class="text-[11px] mt-1">Mercato 1,5 km</span>
+      </button>
+      <button onclick="switchTab('eventi')" id="nav-eventi" class="flex flex-col items-center text-slate-500 font-medium">
+        <span class="text-lg leading-none">📣</span>
+        <span class="text-[11px] mt-1">Alert Eventi</span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    const DEFAULT_RULES = {
+      baseSingola: 83,
+      baseDoppia: 90,
+      blueExtra: 5,
+      weExtra: 5,
+      lastRoomExtra: 8
+    };
+
+    let userRules = { ...DEFAULT_RULES, ...JSON.parse(localStorage.getItem('savi_user_rules') || '{}') };
+    let roomBookings = JSON.parse(localStorage.getItem('savi_room_bookings') || '{}'); // { "2026-11-20": { brown: true, green: false, blue: false } }
+    const customEvents = JSON.parse(localStorage.getItem('savi_custom_events') || '[]');
+    const userNotes = JSON.parse(localStorage.getItem('savi_user_notes') || '{}');
+
+    let radarData = null;
+    let currentOcc = 'doppia';
+    let currentFilter = 'all';
+    let currentArea = 'all';
+
+    const GIORNI_IT = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
+    const MESI_IT = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+
+    function formatDateIt(iso) {
+      const [y, m, d] = iso.split('-').map(Number);
+      const dtObj = new Date(y, m - 1, d);
+      const wd = (dtObj.getDay() + 6) % 7;
+      return `${GIORNI_IT[wd]} ${d} ${MESI_IT[m - 1]}`;
+    }
+
+    function formatShortDate(iso) {
+      const [, m, d] = iso.split('-');
+      return `${d}/${m}`;
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch('dati_radar.json?t=' + Date.now());
+        if (!res.ok) throw new Error('JSON non trovato');
+        radarData = await res.json();
+        document.getElementById('lastUpdateText').textContent = `Aggiornato: ${radarData.updated_at} · Raggio 1,5 km`;
+      } catch (e) {
+        document.getElementById('syncBadge').textContent = 'Offline / Demo';
+        document.getElementById('syncBadge').className = 'text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800';
+        radarData = buildFallbackData();
+      }
+      syncRulesInputs();
+      renderAll();
+    }
+
+    function buildFallbackData() {
+      const competitors = [
+        { nome: "Mr. Brown San Paolo", tipo: "Affittacamere", camera: "Matrimoniale", distanza_km: 0.35, singola_ref: 84, doppia_ref: 92 },
+        { nome: "Onesti House", tipo: "Affittacamere", camera: "Doppia", distanza_km: 0.45, singola_ref: 82, doppia_ref: 90 },
+        { nome: "Guest House San Lorenz", tipo: "Guest House", camera: "Matrimoniale", distanza_km: 0.60, singola_ref: 85, doppia_ref: 94 },
+        { nome: "Hello Roma B&B", tipo: "B&B / 3★", camera: "Doppia/Singola", distanza_km: 0.85, singola_ref: 73, doppia_ref: 99 },
+        { nome: "BV Oly Hotel", tipo: "Hotel 4★", camera: "Standard", distanza_km: 1.15, singola_ref: 86, doppia_ref: 91 },
+        { nome: "Hotel Caravel", tipo: "Hotel 4★", camera: "Doppia", distanza_km: 1.45, singola_ref: 81, doppia_ref: 95 }
+      ];
+      const eventi = [
+        { titolo: "Convegno Medico-Scientifico", sede: "Garbatella / Hotel Mantegna", area: "mantegna", inizio: "2026-11-20", fine: "2026-11-21", impatto: "Alto", delta_consigliato: 12, note: "Alta richiesta camere vicino C. Colombo / Garbatella." },
+        { titolo: "Congressi & Forum EUR", sede: "Quartiere EUR (La Nuvola)", area: "eur", inizio: "2026-11-25", fine: "2026-11-27", impatto: "Alto", delta_consigliato: 15, note: "Clientela business Metro B." },
+        { titolo: "Sessioni Laurea Roma Tre", sede: "Laurentina / Università Roma Tre", area: "laurentina", inizio: "2026-12-01", fine: "2026-12-03", impatto: "Medio-Alto", delta_consigliato: 10, note: "Famiglie e docenti in arrivo." },
+        { titolo: "Ponte dell'Immacolata", sede: "Roma / San Paolo & EUR", area: "eur", inizio: "2026-12-05", fine: "2026-12-08", impatto: "Molto Alto", delta_consigliato: 22, note: "Weekend lungo ad alta occupazione." }
+      ];
+      const calendario = [];
+      for (let m of [11, 12]) {
+        const daysInMonth = m === 11 ? 30 : 31;
+        for (let d = 1; d <= daysInMonth; d++) {
+          const iso = `2026-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+          const dtObj = new Date(2026, m - 1, d);
+          const wd = (dtObj.getDay() + 6) % 7;
+          const isWe = (wd === 4 || wd === 5);
+          const ev = eventi.find(e => iso >= e.inizio && iso <= e.fine) || null;
+          const evBonus = ev ? ev.delta_consigliato : 0;
+          calendario.push({
+            date: iso,
+            weekday: wd,
+            is_we_nov_dic: isWe,
+            evento: ev,
+            mercato: { singola_media: 82 + (isWe ? 6 : 0) + Math.floor(evBonus/2), doppia_media: 94 + (isWe ? 8 : 0) + Math.floor(evBonus/2) }
+          });
+        }
+      }
+      return { updated_at: 'Modalità Locale', storico_mercato: [], competitors, eventi, calendario };
+    }
+
+    function toggleRulesDrawer() {
+      document.getElementById('rulesDrawer').classList.toggle('hidden');
+    }
+
+    function syncRulesInputs() {
+      document.getElementById('cfgBaseSingola').value = userRules.baseSingola;
+      document.getElementById('cfgBaseDoppia').value = userRules.baseDoppia;
+      document.getElementById('cfgBlueExtra').value = userRules.blueExtra;
+      document.getElementById('cfgWeExtra').value = userRules.weExtra;
+      document.getElementById('cfgLastRoomExtra').value = userRules.lastRoomExtra;
+    }
+
+    function saveRulesFromUI() {
+      userRules = {
+        baseSingola: Number(document.getElementById('cfgBaseSingola').value) || 83,
+        baseDoppia: Number(document.getElementById('cfgBaseDoppia').value) || 90,
+        blueExtra: Number(document.getElementById('cfgBlueExtra').value) || 0,
+        weExtra: Number(document.getElementById('cfgWeExtra').value) || 0,
+        lastRoomExtra: Number(document.getElementById('cfgLastRoomExtra').value) || 0
+      };
+      localStorage.setItem('savi_user_rules', JSON.stringify(userRules));
+      toggleRulesDrawer();
+      renderAll();
+    }
+
+    function resetRules() {
+      userRules = { ...DEFAULT_RULES };
+      localStorage.setItem('savi_user_rules', JSON.stringify(userRules));
+      syncRulesInputs();
+      renderAll();
+    }
+
+    function toggleRoomBooked(dateIso, roomKey) {
+      if (!roomBookings[dateIso]) {
+        roomBookings[dateIso] = { brown: false, green: false, blue: false };
+      }
+      roomBookings[dateIso][roomKey] = !roomBookings[dateIso][roomKey];
+      localStorage.setItem('savi_room_bookings', JSON.stringify(roomBookings));
+      renderCalendar();
+    }
+
+    function copyDayPrices(dateIso, occLabel, pBrown, pGreen, pBlue, booked) {
+      const parts = [];
+      if (!booked.brown) parts.push(`Brown €${pBrown}`);
+      if (!booked.green) parts.push(`Green €${pGreen}`);
+      if (!booked.blue) parts.push(`Blue €${pBlue}`);
+      const text = parts.length > 0
+        ? `${formatShortDate(dateIso)} (${occLabel}): ${parts.join(' · ')}`
+        : `${formatShortDate(dateIso)}: Completo (0 camere libere)`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+      const toast = document.getElementById('copyToast');
+      toast.textContent = `Copiato: ${text}`;
+      toast.classList.remove('hidden');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => toast.classList.add('hidden'), 2200);
+    }
+
+    function switchTab(tab) {
+      ['prezzi', 'mercato', 'eventi'].forEach(t => {
+        document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab);
+        const nav = document.getElementById('nav-' + t);
+        nav.className = t === tab
+          ? 'flex flex-col items-center text-blue-600 font-semibold'
+          : 'flex flex-col items-center text-slate-500 font-medium';
+      });
+    }
+
+    function setOcc(occ) {
+      currentOcc = occ;
+      document.getElementById('btnSingola').textContent = `Singola (€${userRules.baseSingola})`;
+      document.getElementById('btnDoppia').textContent = `Doppia (€${userRules.baseDoppia})`;
+      document.getElementById('btnSingola').className = occ === 'singola'
+        ? 'px-3 py-1 rounded-lg text-xs font-semibold bg-white text-slate-900 shadow-sm'
+        : 'px-3 py-1 rounded-lg text-xs font-semibold text-slate-500';
+      document.getElementById('btnDoppia').className = occ === 'doppia'
+        ? 'px-3 py-1 rounded-lg text-xs font-semibold bg-white text-slate-900 shadow-sm'
+        : 'px-3 py-1 rounded-lg text-xs font-semibold text-slate-500';
+
+      document.getElementById('activeRulesBadges').innerHTML = `
+        <span class="bg-blue-50 text-blue-800 px-2 py-0.5 rounded-md font-medium">Blue Room +€${userRules.blueExtra}</span>
+        <span class="bg-purple-50 text-purple-800 px-2 py-0.5 rounded-md font-medium">Ven/Sab Nov-Dic +€${userRules.weExtra}</span>
+        <span class="bg-rose-50 text-rose-800 px-2 py-0.5 rounded-md font-medium">Ultima camera +€${userRules.lastRoomExtra}</span>
+      `;
+      renderCalendar();
+    }
+
+    function setFilter(f) {
+      currentFilter = f;
+      document.querySelectorAll('.flt-btn').forEach(b => {
+        b.className = 'flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 border border-slate-200';
+      });
+      document.getElementById('flt-' + f).className = 'flt-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white';
+      renderCalendar();
+    }
+
+    function setAreaFilter(a) {
+      currentArea = a;
+      document.querySelectorAll('.area-btn').forEach(b => {
+        b.className = 'area-btn shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700';
+      });
+      document.getElementById('area-' + a).className = 'area-btn shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-900 text-white';
+      renderEvents();
+    }
+
+    function addCustomEvent() {
+      const title = document.getElementById('newEvTitle').value.trim();
+      const area = document.getElementById('newEvArea').value;
+      const delta = parseInt(document.getElementById('newEvDelta').value || '15', 10);
+      const inizio = document.getElementById('newEvStart').value;
+      const fine = document.getElementById('newEvEnd').value || inizio;
+      if (!title || !inizio) return;
+      const sedeMap = {
+        mantegna: 'Garbatella / Hotel Mantegna',
+        eur: 'Quartiere EUR',
+        laurentina: 'Laurentina / Roma Tre'
+      };
+      customEvents.push({
+        titolo: title,
+        sede: sedeMap[area],
+        area,
+        inizio,
+        fine,
+        impatto: 'Segnalato da te',
+        delta_consigliato: delta,
+        note: 'Aggiunto manualmente da iPhone.'
+      });
+      localStorage.setItem('savi_custom_events', JSON.stringify(customEvents));
+      document.getElementById('newEvTitle').value = '';
+      renderAll();
+      switchTab('prezzi');
+    }
+
+    function saveNote(dateIso, val) {
+      userNotes[dateIso] = val;
+      localStorage.setItem('savi_user_notes', JSON.stringify(userNotes));
+    }
+
+    function renderAll() {
+      setOcc(currentOcc);
+      renderCompetitors();
+      renderEvents();
+    }
+
+    function renderCalendar() {
+      if (!radarData) return;
+      const container = document.getElementById('calendarList');
+
+      const rows = radarData.calendario.map(g => {
+        const customEv = customEvents.find(e => g.date >= e.inizio && g.date <= e.fine);
+        const ev = customEv || g.evento;
+        const evDelta = ev ? ev.delta_consigliato : 0;
+        const weBonus = g.is_we_nov_dic ? userRules.weExtra : 0;
+
+        const booked = roomBookings[g.date] || { brown: false, green: false, blue: false };
+        const bookedCount = (booked.brown ? 1 : 0) + (booked.green ? 1 : 0) + (booked.blue ? 1 : 0);
+        const freeCount = 3 - bookedCount;
+        const lastRoomBonus = (freeCount === 1) ? userRules.lastRoomExtra : 0;
+
+        const base = currentOcc === 'singola' ? userRules.baseSingola : userRules.baseDoppia;
+        const pBrown = base + weBonus + evDelta + lastRoomBonus;
+        const pGreen = base + weBonus + evDelta + lastRoomBonus;
+        const pBlue = base + userRules.blueExtra + weBonus + evDelta + lastRoomBonus;
+
+        const motivi = [];
+        if (weBonus > 0) motivi.push(`WE +€${weBonus}`);
+        if (ev) motivi.push(`${ev.titolo} (+€${evDelta})`);
+        if (lastRoomBonus > 0) motivi.push(`Ultima camera (+€${lastRoomBonus})`);
+        if (freeCount === 0) motivi.push('Tutto esaurito');
+
+        return {
+          ...g,
+          evento: ev,
+          booked,
+          freeCount,
+          lastRoomBonus,
+          prezzi: { brown: pBrown, green: pGreen, blue: pBlue },
+          motivazioneText: motivi.length ? motivi.join(' · ') : 'Tariffa base standard'
+        };
+      }).filter(g => {
+        if (currentFilter === 'nov') return g.date.startsWith('2026-11');
+        if (currentFilter === 'dic') return g.date.startsWith('2026-12');
+        if (currentFilter === 'we') return g.is_we_nov_dic;
+        if (currentFilter === 'ev') return Boolean(g.evento);
+        if (currentFilter === 'avail') return g.freeCount > 0;
+        return true;
+      });
+
+      container.innerHTML = rows.map(g => {
+        const mktMedia = currentOcc === 'singola' ? g.mercato.singola_media : g.mercato.doppia_media;
+        const diff = g.prezzi.brown - mktMedia;
+        const diffPct = mktMedia > 0 ? Math.round((diff / mktMedia) * 100) : 0;
+        const diffBadge = diff >= 0
+          ? `<span class="text-emerald-700 font-bold">▲ +€${diff} (+${diffPct}%)</span>`
+          : `<span class="text-blue-700 font-bold">▼ -€${Math.abs(diff)} (${diffPct}%)</span>`;
+
+        const notaSalvata = userNotes[g.date] || '';
+        const occLabel = currentOcc === 'singola' ? '1P' : '2P';
+
+        const roomCard = (key, label, price, themeBg, themeBorder, textCol) => {
+          const isBooked = g.booked[key];
+          return `
+            <div onclick="toggleRoomBooked('${g.date}', '${key}')" class="cursor-pointer select-none rounded-xl py-1.5 px-1 border transition active:scale-95 ${
+              isBooked
+                ? 'bg-slate-100 border-slate-300 opacity-60'
+                : `${themeBg} ${themeBorder}`
+            }">
+              <div class="flex items-center justify-center gap-1">
+                <span class="text-[10px] font-semibold ${isBooked ? 'text-slate-500 line-through' : textCol}">${label}</span>
+              </div>
+              <div class="text-base font-extrabold ${isBooked ? 'text-slate-400 line-through' : 'text-slate-900'}">€ ${price}</div>
+              <div class="text-[9px] font-bold mt-0.5 ${isBooked ? 'text-rose-600' : 'text-emerald-700'}">
+                ${isBooked ? 'PRENOTATA' : 'LIBERA'}
+              </div>
+            </div>
+          `;
+        };
+
+        return `
+          <div id="day-${g.date}" class="bg-white rounded-2xl p-3 shadow-sm border ${
+            g.freeCount === 0 ? 'border-slate-300 bg-slate-50/70' : g.evento ? 'border-amber-300' : 'border-slate-200/80'
+          } space-y-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-sm font-bold text-slate-900">${formatDateIt(g.date)}</span>
+                ${g.is_we_nov_dic ? `<span class="text-[10px] font-bold bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded">WE +€${userRules.weExtra}</span>` : ''}
+                ${g.freeCount === 1 ? `<span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-1.5 py-0.5 rounded">1 rimasta</span>` : ''}
+                ${g.freeCount === 0 ? `<span class="text-[10px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded">Completo</span>` : ''}
+              </div>
+              <button onclick='copyDayPrices("${g.date}", "${occLabel}", ${g.prezzi.brown}, ${g.prezzi.green}, ${g.prezzi.blue}, ${JSON.stringify(g.booked)})' class="text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-1 rounded-lg active:scale-95 transition">
+                📋 Copia
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between text-[11px] bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
+              <span class="text-slate-500">Media zona 1,5km: <strong class="text-slate-800">€${mktMedia}</strong></span>
+              <span>vs Zona: ${diffBadge}</span>
+            </div>
+
+            ${g.evento ? `
+              <div class="bg-amber-50 border border-amber-200/80 rounded-xl px-2.5 py-1.5 text-xs text-amber-950">
+                <div class="font-bold">📣 ${g.evento.titolo}</div>
+                <div class="text-[11px] text-amber-800">${g.evento.sede} · Consiglio +€${g.evento.delta_consigliato}</div>
+              </div>
+            ` : ''}
+
+            <div class="grid grid-cols-3 gap-1.5 text-center pt-0.5">
+              ${roomCard('brown', 'Brown Room', g.prezzi.brown, 'bg-amber-900/5', 'border-amber-900/15', 'text-amber-950')}
+              ${roomCard('green', 'Green Room', g.prezzi.green, 'bg-emerald-900/5', 'border-emerald-900/15', 'text-emerald-950')}
+              ${roomCard('blue', 'Blue Room', g.prezzi.blue, 'bg-blue-900/5', 'border-blue-900/20', 'text-blue-950')}
+            </div>
+            <div class="text-[10px] text-slate-400 text-center">Tocca una camera per segnarla Libera / Prenotata</div>
+
+            <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
+              <span class="text-[11px] text-slate-500 truncate">${g.motivazioneText}</span>
+              <input type="text" value="${notaSalvata}" onchange="saveNote('${g.date}', this.value)" placeholder="Nota..." class="w-24 text-right text-xs bg-slate-50 border border-slate-200 rounded-lg px-2 py-1" />
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderCompetitors() {
+      if (!radarData) return;
+      const comps = radarData.competitors;
+      const avgS = Math.round(comps.reduce((a, b) => a + b.singola_ref, 0) / comps.length);
+      const avgD = Math.round(comps.reduce((a, b) => a + b.doppia_ref, 0) / comps.length);
+      document.getElementById('avgSingolaBox').textContent = `€ ${avgS}`;
+      document.getElementById('avgDoppiaBox').textContent = `€ ${avgD}`;
+
+      const storico = radarData.storico_mercato || [];
+      if (storico.length > 0) {
+        const ultimo = storico[storico.length - 1];
+        document.getElementById('storicoBox').innerHTML = `
+          <div class="bg-blue-50/70 border border-blue-100 rounded-xl px-3 py-2 text-[11px] text-blue-900 flex items-center justify-between">
+            <span>📈 Storico rilevamenti salvati: <strong>${storico.length} giorni</strong></span>
+            <span>Ultimo (${ultimo.data}): 1P €${ultimo.media_singola} · 2P €${ultimo.media_doppia}</span>
+          </div>
+        `;
+      }
+
+      document.getElementById('competitorList').innerHTML = comps.map(c => `
+        <div class="py-2.5 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-slate-900">${c.nome} <span class="font-normal text-slate-400">(${c.distanza_km} km)</span></div>
+            <div class="text-[11px] text-slate-500">${c.tipo} · ${c.camera}</div>
+          </div>
+          <div class="text-right text-xs">
+            <div class="font-semibold text-slate-800">1P: €${c.singola_ref}</div>
+            <div class="font-bold text-blue-700">2P: €${c.doppia_ref}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderEvents() {
+      if (!radarData) return;
+      const all = [...radarData.eventi, ...customEvents];
+      document.getElementById('eventCountBadge').textContent = all.length;
+      const filtered = currentArea === 'all' ? all : all.filter(e => e.area === currentArea);
+
+      document.getElementById('eventList').innerHTML = filtered.map(ev => `
+        <div class="rounded-xl border border-amber-200 bg-amber-50/60 p-3 space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-amber-900">${ev.inizio}${ev.fine !== ev.inizio ? ' → ' + ev.fine : ''}</span>
+            <span class="text-[10px] font-bold bg-amber-600 text-white px-2 py-0.5 rounded-full">+€${ev.delta_consigliato}</span>
+          </div>
+          <div class="text-xs font-bold text-slate-900">${ev.titolo}</div>
+          <div class="text-[11px] font-medium text-slate-600">📍 ${ev.sede}</div>
+          <p class="text-[11px] text-slate-500">${ev.note || ''}</p>
+          <button onclick="jumpToDate('${ev.inizio}')" class="mt-1 text-[11px] font-bold text-blue-700">Vedi prezzi in calendario →</button>
+        </div>
+      `).join('');
+    }
+
+    function jumpToDate(iso) {
+      setFilter('all');
+      switchTab('prezzi');
+      setTimeout(() => {
+        const el = document.getElementById('day-' + iso);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
